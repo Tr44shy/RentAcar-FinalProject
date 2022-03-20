@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RentAcarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="RentAcarEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="RentAcarModel.Cliente" />
+    <EntitySet Name="Empleados" EntityType="RentAcarModel.Empleado" />
+    <EntitySet Name="Inspeccions" EntityType="RentAcarModel.Inspeccion" />
+    <EntitySet Name="Marcas" EntityType="RentAcarModel.Marca" />
+    <EntitySet Name="RentaDevolucions" EntityType="RentAcarModel.RentaDevolucion" />
+    <EntitySet Name="TiposDecombustibles" EntityType="RentAcarModel.TiposDecombustible" />
+    <EntitySet Name="TiposDeVehiculos" EntityType="RentAcarModel.TiposDeVehiculo" />
+    <EntitySet Name="Users" EntityType="RentAcarModel.User" />
+    <EntitySet Name="Vehiculoes" EntityType="RentAcarModel.Vehiculo" />
+    <EntitySet Name="Modelos" EntityType="RentAcarModel.Modelo" />
+  </EntityContainer>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cedula" Type="Int64" Nullable="false" />
+    <Property Name="NoTarjetaCR" Type="Int64" />
+    <Property Name="LimiteDeCredito" Type="Int64" />
+    <Property Name="TipoPersona" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TandaLabor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PorcientoComision" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaIngreso" Type="DateTime" Precision="3" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Inspeccion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Idvehiculo" Type="Int32" />
+    <Property Name="Idcliente" Type="Int32" />
+    <Property Name="TieneRalladuras" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CantidadCombustible" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TieneGomaRepuesta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TieneGato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TieneRoturasCristal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoGomas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="IdEmpleadoInspeccion" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Marca">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RentaDevolucion">
+    <Key>
+      <PropertyRef Name="NoRenta" />
+    </Key>
+    <Property Name="NoRenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Idempleado" Type="Int32" Nullable="false" />
+    <Property Name="Idvehiculo" Type="Int32" Nullable="false" />
+    <Property Name="IdCliente" Type="Int32" Nullable="false" />
+    <Property Name="FechaRenta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaDevolucion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Montoxdia" Type="Int64" />
+    <Property Name="CantidadDeDias" Type="Int32" />
+    <Property Name="Comentario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TiposDecombustible">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TiposDeVehiculo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Vehiculo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="NChasis" Type="Int32" />
+    <Property Name="NMotor" Type="Int32" />
+    <Property Name="NPlaca" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TipoDeVehiculo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TipoDeCombustible" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Modelo">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="IdMarca" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMarca" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

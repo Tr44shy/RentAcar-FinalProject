@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RentAcarModelStoreContainer" CdmEntityContainer="RentAcarEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="RentAcarModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="User1" ColumnName="User" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehiculoes">
+      <EntityTypeMapping TypeName="RentAcarModel.Vehiculo">
+        <MappingFragment StoreEntitySet="Vehiculo">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="TipoDeCombustible" ColumnName="TipoDeCombustible" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="TipoDeVehiculo" ColumnName="TipoDeVehiculo" />
+          <ScalarProperty Name="NPlaca" ColumnName="NPlaca" />
+          <ScalarProperty Name="NMotor" ColumnName="NMotor" />
+          <ScalarProperty Name="NChasis" ColumnName="NChasis" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

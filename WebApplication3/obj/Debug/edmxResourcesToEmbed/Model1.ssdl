@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RentAcarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cedula" Type="bigint" Nullable="false" />
+    <Property Name="NoTarjetaCR" Type="bigint" />
+    <Property Name="LimiteDeCredito" Type="bigint" />
+    <Property Name="TipoPersona" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Cedula" Type="varchar" MaxLength="50" />
+    <Property Name="TandaLabor" Type="varchar" MaxLength="50" />
+    <Property Name="PorcientoComision" Type="varchar" MaxLength="50" />
+    <Property Name="FechaIngreso" Type="datetime" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Inspeccion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Idvehiculo" Type="int" />
+    <Property Name="Idcliente" Type="int" />
+    <Property Name="TieneRalladuras" Type="nvarchar" MaxLength="50" />
+    <Property Name="CantidadCombustible" Type="nvarchar" MaxLength="50" />
+    <Property Name="TieneGomaRepuesta" Type="varchar" MaxLength="50" />
+    <Property Name="TieneGato" Type="varchar" MaxLength="50" />
+    <Property Name="TieneRoturasCristal" Type="varchar" MaxLength="50" />
+    <Property Name="EstadoGomas" Type="varchar" MaxLength="50" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="IdEmpleadoInspeccion" Type="int" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Marcas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'RentAcar.dbo.Modelos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Modelos">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="IdMarca" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMarca" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RentaDevolucion">
+    <Key>
+      <PropertyRef Name="NoRenta" />
+    </Key>
+    <Property Name="NoRenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Idempleado" Type="int" Nullable="false" />
+    <Property Name="Idvehiculo" Type="int" Nullable="false" />
+    <Property Name="IdCliente" Type="int" Nullable="false" />
+    <Property Name="FechaRenta" Type="datetime" Nullable="false" />
+    <Property Name="FechaDevolucion" Type="datetime" Nullable="false" />
+    <Property Name="Montoxdia" Type="bigint" />
+    <Property Name="CantidadDeDias" Type="int" />
+    <Property Name="Comentario" Type="varchar" MaxLength="200" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TiposDecombustible">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TiposDeVehiculos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Vehiculo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="300" />
+    <Property Name="NChasis" Type="int" />
+    <Property Name="NMotor" Type="int" />
+    <Property Name="NPlaca" Type="varchar" MaxLength="10" />
+    <Property Name="TipoDeVehiculo" Type="varchar" MaxLength="50" />
+    <Property Name="Marca" Type="varchar" MaxLength="50" />
+    <Property Name="Modelo" Type="varchar" MaxLength="50" />
+    <Property Name="TipoDeCombustible" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="RentAcarModelStoreContainer">
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inspeccion" EntityType="Self.Inspeccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marcas" EntityType="Self.Marcas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentaDevolucion" EntityType="Self.RentaDevolucion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TiposDecombustible" EntityType="Self.TiposDecombustible" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TiposDeVehiculos" EntityType="Self.TiposDeVehiculos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modelos" EntityType="Self.Modelos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Modelos].[Id] AS [Id], 
+    [Modelos].[IdMarca] AS [IdMarca], 
+    [Modelos].[Descripcion] AS [Descripcion], 
+    [Modelos].[Estado] AS [Estado]
+    FROM [dbo].[Modelos] AS [Modelos]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

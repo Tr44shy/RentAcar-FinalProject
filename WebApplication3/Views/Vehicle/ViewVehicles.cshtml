@@ -1,0 +1,31 @@
+﻿@model List<WebApplication3.Models.TableViewModels.VehicleTableViewModel>
+@{
+    ViewBag.Title = "ViewVehicles";
+}
+
+<h2>ViewVehicles</h2>
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table-bordered">
+            <tr>
+                <th>Descripcion</th>
+                <th>Placa</th>
+                <th>Tipo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+            </tr>
+            @foreach (var oElement in Model)
+            {
+
+                <tr>
+                    <td>@oElement.Descripcion</td>
+                    <td>@oElement.NPlaca</td>
+                    <td>@oElement.TipoDeVehiculo</td>
+                    <td>@oElement.Marca</td>
+                    <td>@oElement.Modelo</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
