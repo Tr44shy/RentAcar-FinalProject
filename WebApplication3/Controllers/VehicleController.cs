@@ -31,5 +31,28 @@ namespace WebApplication3.Controllers
             }
                 return View(lst);
         }
+
+        public ActionResult Search(string option)
+        {
+            List<VehicleTableViewModel> lst = null;
+           
+                using (RentAcarEntities1 db = new RentAcarEntities1())
+                {
+                    lst = (from d in db.Vehiculoes
+                           where d.Estado == "Activo" & d.Modelo == "option"
+                           select new VehicleTableViewModel
+                           {
+                               Descripcion = d.Descripcion,
+                               NPlaca = d.NPlaca,
+                               TipoDeVehiculo = d.TipoDeVehiculo,
+                               Marca = d.Marca,
+                               Modelo = d.Modelo
+                           }).ToList();
+                }
+            Console.WriteLine("hola");
+            return View(lst);
+            
+              }
+            
     }
 }

@@ -6,6 +6,16 @@
 <h2>ViewVehicles</h2>
 
 <div class="row">
+    <div class="row">
+        <h4>Modelo</h4>
+        <form>
+            <select>
+                <option name="option">Corolla</option>
+                <option name="option">Sonata</option>
+            </select>
+            <input type="submit" class="btn-default" value="Buscar">
+        </form>
+    </div>
     <div class="col-lg-12">
         <table class="table-bordered">
             <tr>
@@ -29,3 +39,28 @@
         </table>
     </div>
 </div>
+
+
+@section scripts{
+    <script>
+    $(document).ready(function () {
+        $("#frm").submit(function (e) {
+            e.preventDefault();
+
+            url = "@Url.Content("~/Vehicle/Search")"
+            parametros = $(this).serialize();
+
+
+            $.post(url, parametros, function (data) {
+                if (data == 1) {
+                    document.location.href = "@Url.Content("~/")";
+                }
+                else
+                {
+                    alert(data);
+                }
+            })
+        })
+    })
+    </script>
+}

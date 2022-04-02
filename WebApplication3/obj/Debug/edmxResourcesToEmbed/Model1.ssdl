@@ -99,6 +99,7 @@ advertencia 6002: La tabla o vista 'RentAcar.dbo.Modelos' no tiene definida ning
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="User" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="nchar" MaxLength="10" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Vehiculo">
     <Key>
