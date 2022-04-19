@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AccessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogoffController.cs" />
+    <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Empleado.cs">
@@ -245,9 +246,11 @@
     <Content Include="Views\Access\Contact.cshtml" />
     <Content Include="Views\Vehicle\ViewVehicles.cshtml" />
     <Content Include="Views\User\Userview.cshtml" />
+    <Content Include="Views\Rent\RentView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\RentTableViewModels\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>

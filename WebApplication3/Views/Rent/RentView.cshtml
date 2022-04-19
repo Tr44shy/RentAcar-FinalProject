@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "RentView";
+}
+
+<h2>RentView</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Rentar", "Rent", FormMethod.Post))
+        {
+
+            @Html.Label("Id Auto")
+            @Html.TextBox("idAuto")
+
+            @Html.Label("Cliente")
+            @Html.TextBox("idCliente")
+
+            @Html.Label("Fecha de Renta")
+            @Html.TextBox("fechaRenta")
+
+            @Html.Label("Precio")
+            @Html.TextBox("precioRenta")
+
+            <input type="submit" class="" btn btn-success" value="Guardar">
+
+        }
+
+        <div>
+        </div>
