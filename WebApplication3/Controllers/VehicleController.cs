@@ -10,26 +10,79 @@ namespace WebApplication3.Controllers
 {
     public class VehicleController : Controller
     {
-        // GET: Vehicle
+        private readonly RentAcarEntities1 db = new RentAcarEntities1();
 
-        public ActionResult ViewVehicles()
+        public ActionResult ViewVehicles(string option)
         {
-            List<VehicleTableViewModel> lst = null;
-            using (RentAcarEntities1 db = new RentAcarEntities1()) { 
-                lst = (from d in db.Vehiculoes
-                       where d.Estado == "Activo"
-                       select new VehicleTableViewModel
-                       {
-                           Descripcion = d.Descripcion,
-                           NPlaca = d.NPlaca,
-                           TipoDeVehiculo = d.TipoDeVehiculo,
-                           Marca = d.Marca,
-                           Modelo = d.Modelo
+            List<VehicleTableViewModel> lst = new List<VehicleTableViewModel>();
 
-                       }).ToList();
+            if (string.IsNullOrWhiteSpace(option))
+            {
+                var vehiculos = db.Vehiculoes.ToList();
 
-            }
+                foreach (var vehiculo in vehiculos)
+                {
+                    var vehicleVM = castearVehiculo(vehiculo);
+                    lst.Add(vehicleVM);
+                }
+
                 return View(lst);
+            }
+            else
+            {
+                var vehiculos = db.Vehiculoes.Where(x => x.Estado == "Activo" && (x.Modelo == option
+                                                                              || x.NPlaca == option
+                                                                              || x.Marca == option
+                                                                              || x.TipoDeVehiculo == option)).ToList();
+                
+                foreach (var vehiculo in vehiculos)
+                {
+                    var vehicleVM = castearVehiculo(vehiculo);
+                    lst.Add(vehicleVM);
+                }            
+
+                return View(lst);
+            }
         }
+
+        public VehicleTableViewModel castearVehiculo(Vehiculo vehiculo)
+        {
+            return new VehicleTableViewModel
+            {
+                Descripcion = vehiculo.Descripcion,
+                NPlaca = vehiculo.NPlaca,
+                TipoDeVehiculo = vehiculo.TipoDeVehiculo,
+                Marca = vehiculo.Marca,
+                Modelo = vehiculo.Modelo
+
+            };
+        }
+
+      /**  [HttpGet]
+        public ActionResult SearchbyModel(string option)
+        {
+           List<VehicleTableViewModel>
+                   lst = (from d in db.Vehiculoes
+                   where d.Estado == "Activo" & d.Modelo == option
+                   select new VehicleTableViewModel
+                   {
+                       Descripcion = d.Descripcion,
+                       NPlaca = d.NPlaca,
+                       TipoDeVehiculo = d.TipoDeVehiculo,
+                       Marca = d.Marca,
+                       Modelo = d.Modelo
+
+                   }).ToList();
+
+            return View(lst);
+        }**/
     }
 }
+
+
+
+       
+
+           
+           
+    

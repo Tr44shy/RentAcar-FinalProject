@@ -16,7 +16,7 @@ namespace WebApplication3.Filters.Sessionfilter
             {
                 if (filterContext.Controller is AccessController == false)
                 {
-                    if (filterContext.Controller is UserController == true)
+                    if (filterContext.Controller is UserController || filterContext.Controller is AdminController == true)
                     {
                         base.OnActionExecuting(filterContext);
                     }

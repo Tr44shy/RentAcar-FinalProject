@@ -12,17 +12,10 @@ namespace WebApplication3
     using System;
     using System.Collections.Generic;
     
-    public partial class RentaDevolucion
+    public partial class Admin
     {
-        public int NoRenta { get; set; }
-        public int Idempleado { get; set; }
-        public int Idvehiculo { get; set; }
-        public int IdCliente { get; set; }
-        public System.DateTime FechaRenta { get; set; }
-        public System.DateTime FechaDevolucion { get; set; }
-        public Nullable<long> Montoxdia { get; set; }
-        public Nullable<int> CantidadDeDias { get; set; }
-        public string Comentario { get; set; }
-        public string Estado { get; set; }
+        public int ID { get; set; }
+        public string Usuario { get; set; }
+        public string Pass { get; set; }
     }
 }

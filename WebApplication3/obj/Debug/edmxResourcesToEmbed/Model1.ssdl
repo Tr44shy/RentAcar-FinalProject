@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="RentAcarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pass" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Clientes">
     <Key>
       <PropertyRef Name="Id" />
@@ -61,20 +69,15 @@ advertencia 6002: La tabla o vista 'RentAcar.dbo.Modelos' no tiene definida ning
     <Property Name="Descripcion" Type="varchar" MaxLength="50" />
     <Property Name="Estado" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="RentaDevolucion">
+  <EntityType Name="Renta">
     <Key>
-      <PropertyRef Name="NoRenta" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="NoRenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Idempleado" Type="int" Nullable="false" />
-    <Property Name="Idvehiculo" Type="int" Nullable="false" />
-    <Property Name="IdCliente" Type="int" Nullable="false" />
-    <Property Name="FechaRenta" Type="datetime" Nullable="false" />
-    <Property Name="FechaDevolucion" Type="datetime" Nullable="false" />
-    <Property Name="Montoxdia" Type="bigint" />
-    <Property Name="CantidadDeDias" Type="int" />
-    <Property Name="Comentario" Type="varchar" MaxLength="200" />
-    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDVehiculo" Type="int" Nullable="false" />
+    <Property Name="IDCliente" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Precio" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="TiposDecombustible">
     <Key>
@@ -99,6 +102,7 @@ advertencia 6002: La tabla o vista 'RentAcar.dbo.Modelos' no tiene definida ning
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="User" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="nchar" MaxLength="10" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Vehiculo">
     <Key>
@@ -116,11 +120,12 @@ advertencia 6002: La tabla o vista 'RentAcar.dbo.Modelos' no tiene definida ning
     <Property Name="Estado" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityContainer Name="RentAcarModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Inspeccion" EntityType="Self.Inspeccion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Marcas" EntityType="Self.Marcas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="RentaDevolucion" EntityType="Self.RentaDevolucion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Renta" EntityType="Self.Renta" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TiposDecombustible" EntityType="Self.TiposDecombustible" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TiposDeVehiculos" EntityType="Self.TiposDeVehiculos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
