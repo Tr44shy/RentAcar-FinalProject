@@ -1,0 +1,43 @@
+﻿@model List<WebApplication3.Models.TableViewModels.VehicleTableViewModel2>
+@{
+    ViewBag.Title = "CarView";
+    Layout = "~/Views/shared/_Layout3.5.cshtml";
+}
+
+</div>
+<div class="col-lg-12">
+    <div class="row"
+       <table border="1" class="table">
+           <tr>
+               <th>ID</th>
+               <th>Descripcion</th>
+               <th>NChasis</th>
+               <th>NMotor</th>
+               <th>Placa</th>
+               <th>Tipo</th>
+               <th>Marca</th>
+               <th>Modelo</th>
+               <th>Tipo de combustible</th>
+               <th>Estado</th>
+           </tr>
+                @foreach (var oElement in Model)
+                {
+
+                    <tr>
+                        <td>@oElement.Id</td>
+                        <td>@oElement.Descripcion</td>
+                        <td>@oElement.NChasis</td>
+                        <td>@oElement.NMotor</td>
+                        <td>@oElement.NPlaca</td>
+                        <td>@oElement.TipoDeVehiculo</td>
+                        <td>@oElement.Marca</td>
+                        <td>@oElement.Modelo</td>
+                        <td>@oElement.TipoDeCombustible</td>
+                        <td>@oElement.Estado</td>
+                    </tr>
+                }
+            </table>   
+         
+    </div>
+</div>
+

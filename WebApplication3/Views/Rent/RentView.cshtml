@@ -1,4 +1,4 @@
-﻿
+﻿@model WebApplication3.Models.TableViewModels.RentaTableViewModel
 @{
     ViewBag.Title = "RentView";
 }
@@ -7,20 +7,22 @@
 
 <div class="row">
     <div class="col-md-12">
-        @using (Html.BeginForm("Rentar", "Rent", FormMethod.Post))
+        @using (Html.BeginForm("RentView", "Rent", FormMethod.Post))
         {
+            
+            @Html.ValidationMessage("Error", new { @class = "text-danger" })
 
-            @Html.Label("Id Auto")
-            @Html.TextBox("idAuto")
+            @Html.LabelFor(model => model.IDVehiculo)
+            @Html.TextBoxFor(model => model.IDVehiculo)
 
-            @Html.Label("Cliente")
-            @Html.TextBox("idCliente")
+            @Html.LabelFor(model => model.IDCliente)
+            @Html.TextBoxFor(model => model.IDCliente)
 
-            @Html.Label("Fecha de Renta")
-            @Html.TextBox("fechaRenta")
-
-            @Html.Label("Precio")
-            @Html.TextBox("precioRenta")
+            @Html.LabelFor(Model => Model.Fecha)
+            @Html.TextBoxFor(model => model.Fecha, new { @textmode = "DateTime" })
+           
+            @Html.LabelFor(model => model.Precio)
+            @Html.TextBoxFor(model => model.Precio)
 
             <input type="submit" class="" btn btn-success" value="Guardar">
 

@@ -30,6 +30,8 @@ namespace WebApplication3.Controllers
             return View();
         }
 
+    
+
         public ActionResult Enter(string user, string password)
         {
             try

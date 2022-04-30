@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="RentAcarModelStoreContainer" CdmEntityContainer="RentAcarEntities1">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="RentAcarModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Clientes">
       <EntityTypeMapping TypeName="RentAcarModel.Cliente">
         <MappingFragment StoreEntitySet="Clientes">
@@ -54,19 +63,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RentaDevolucions">
-      <EntityTypeMapping TypeName="RentAcarModel.RentaDevolucion">
-        <MappingFragment StoreEntitySet="RentaDevolucion">
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
-          <ScalarProperty Name="CantidadDeDias" ColumnName="CantidadDeDias" />
-          <ScalarProperty Name="Montoxdia" ColumnName="Montoxdia" />
-          <ScalarProperty Name="FechaDevolucion" ColumnName="FechaDevolucion" />
-          <ScalarProperty Name="FechaRenta" ColumnName="FechaRenta" />
-          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
-          <ScalarProperty Name="Idvehiculo" ColumnName="Idvehiculo" />
-          <ScalarProperty Name="Idempleado" ColumnName="Idempleado" />
-          <ScalarProperty Name="NoRenta" ColumnName="NoRenta" />
+    <EntitySetMapping Name="Rentas">
+      <EntityTypeMapping TypeName="RentAcarModel.Renta">
+        <MappingFragment StoreEntitySet="Renta">
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+          <ScalarProperty Name="IDVehiculo" ColumnName="IDVehiculo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

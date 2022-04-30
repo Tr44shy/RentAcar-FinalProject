@@ -25,11 +25,12 @@ namespace WebApplication3
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Empleado> Empleados { get; set; }
         public virtual DbSet<Inspeccion> Inspeccions { get; set; }
         public virtual DbSet<Marca> Marcas { get; set; }
-        public virtual DbSet<RentaDevolucion> RentaDevolucions { get; set; }
+        public virtual DbSet<Renta> Rentas { get; set; }
         public virtual DbSet<TiposDecombustible> TiposDecombustibles { get; set; }
         public virtual DbSet<TiposDeVehiculo> TiposDeVehiculos { get; set; }
         public virtual DbSet<User> Users { get; set; }

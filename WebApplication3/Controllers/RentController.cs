@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication3.Models.TableViewModels;
 
 namespace WebApplication3.Controllers
 {
@@ -15,28 +16,40 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
-        public void Rentar(string idAuto, string idCliente, string fechaRenta, string precioRenta)
+        public ActionResult RentView(RentaTableViewModel model)
         {
-            int idVehiculo = int.Parse(idAuto);
-            int idC = int.Parse(idCliente);
-            DateTime fecha = DateTime.Parse(fechaRenta);
-            double precio = double.Parse(precioRenta);
 
-            //Rentaes renta = new Rentaes(
-            //{
-            //    idVehiculo = idVehiculo,
-            //    idCliente = idC,
-            //    fecha = fecha,
-            //    precio = precio
-            //});
+           
+                Renta renta = new Renta();
+                renta.IDVehiculo = model.IDVehiculo;
+                renta.IDCliente = model.IDCliente;
+                renta.Fecha = model.Fecha;
+                renta.Precio = model.Precio;
 
-            //db.Rentaes.Add(renta);
+                db.Rentas.Add(renta);
 
-            var vehiculo = db.Vehiculoes.Find(idVehiculo);
-            Vehiculo vehiculoModificado = new Vehiculo(){ Estado = "Inactivo"};
-            db.Entry(vehiculo).CurrentValues.SetValues(vehiculoModificado);
+                /**var vehiculo = db.Vehiculoes.Find(model.IDVehiculo);
+                Vehiculo vehiculoModificado = new Vehiculo() { Estado = "Inactivo" };
+                db.Entry(vehiculo).CurrentValues.SetValues(vehiculoModificado);**/
 
-            db.SaveChanges();
+                db.SaveChanges();
+          
+
+            
+
+
+            return Redirect(Url.Content("~/Rent/RentView"));
+            /**Renta renta = new Renta()
+            {
+                IDVehiculo = idVehiculo,
+               IDCliente = idC,
+               Fecha = fecha,
+                Precio = precio
+            };
+            **/
+
+
+
         }
     }
 }
