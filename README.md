@@ -9,7 +9,6 @@ _Proyecto final para la materia de programación II_
 * [Entity Framework](https://docs.microsoft.com/en-us/ef/) - ORM
 * En base a la arquitectura MVC
 
-No presenté el proyecto porque aun no está listo, la idea era trabajarlo en grupo pero mis compañeros desaparecieron y no aportaron ni una linea de código, el proyecto se me complicó bastante en varios aspectos, sobretodo por mi inexperiencia trabajando en esta arquitectura y por no saber diseño web 🙃.
 
 El sistema está pensado para iniciar con una vista del login que permite la opción de ir a registrarse o entrar con un usuario (esto es funcional)
 ![Captura](https://user-images.githubusercontent.com/95266761/166089077-ec6b8d94-5a74-480e-93d0-a42ac35408a0.JPG)
